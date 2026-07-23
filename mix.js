@@ -35,14 +35,3 @@ class NovaExtension {
 }
 
 mix.extend('nova', new NovaExtension())
-
-// let mix = require('laravel-mix')
-// let path = require('path')
-//
-// mix
-//     .js('resources/js/field.js', 'js')
-//     .vue({version: 3})
-//     .sourceMaps()
-//     .extract()
-//     .setPublicPath('dist')
-//     .alias({'@': path.join(__dirname, './vendor/laravel/nova/resources/js/')})

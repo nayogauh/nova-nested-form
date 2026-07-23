@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import NestedFormIcon from "./NestedFormIcon";
+import NestedFormIcon from "./NestedFormIcon.vue";
 
 export default {
     components: {NestedFormIcon},

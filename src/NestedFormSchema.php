@@ -44,6 +44,16 @@ class NestedFormSchema implements JsonSerializable
     public $fields;
 
     /**
+     * The current Nova request.
+     *
+     * Declared explicitly to avoid the "creation of dynamic property"
+     * deprecation introduced in PHP 8.2 (supported by Nova 5).
+     *
+     * @var \Laravel\Nova\Http\Requests\NovaRequest
+     */
+    protected $request;
+
+    /**
      * Name of the fields' fitler method.
      *
      * @var string

@@ -4,11 +4,45 @@
 
 This package allows you to include your nested relationships' forms into a parent form.
 
+# Compatibility
+
+| Laravel Nova  | PHP  |
+|---------------|------|
+| 4.17+ and 5.x | 8.1+ |
+
 # Installation
 
 ```bash
-composer require nayogauh/laravel-nova-nested-form
+composer require nayogauh/nova-nested-form
 ```
+
+# Building the assets
+
+The compiled assets in `dist/` are committed, so the package works out of the
+box. Rebuild them only if you modify the Vue components.
+
+The build uses **Laravel Mix**, which is the officially supported tooling for
+Nova field packages on both Nova 4 and Nova 5.
+
+- **On Nova 5**, the Mix `nova` extension is provided by the
+  [`laravel/nova-devtool`](https://github.com/laravel/nova-devtool) composer
+  package (declared under `require-dev`). After `composer install`, run:
+
+  ```bash
+  npm install
+  npm run prod
+  ```
+
+  `webpack.mix.js` automatically picks up `laravel-nova-devtool` when it is
+  present in `node_modules`.
+
+- **On Nova 4**, `laravel/nova-devtool` does not exist. `webpack.mix.js`
+  transparently falls back to the `nova` extension bundled with this package
+  (`mix.js`), so the same commands work unchanged.
+
+Both build paths require Nova's source to resolve the internal component
+aliases (`@` → `vendor/laravel/nova/resources/js`), so build the assets from
+within an application that has Nova installed.
 
 # Attach a new relationship form to a resource
 

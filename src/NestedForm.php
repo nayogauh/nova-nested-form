@@ -2,7 +2,6 @@
 
 namespace Datomatic\NestedForm;
 
-use function GuzzleHttp\json_encode;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Laravel\Nova\Contracts\RelatableField;

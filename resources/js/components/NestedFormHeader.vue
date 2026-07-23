@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import NestedFormAdd from "./NestedFormAdd";
-import NestedFormRemove from "./NestedFormRemove";
-import NestedFormView from "./NestedFormView";
+import NestedFormAdd from "./NestedFormAdd.vue";
+import NestedFormRemove from "./NestedFormRemove.vue";
+import NestedFormView from "./NestedFormView.vue";
 
 export default {
   components: {

@@ -86,8 +86,8 @@
 
 <script>
 import {FormField, HandlesValidationErrors} from "laravel-nova";
-import NestedFormAdd from "./NestedFormAdd";
-import NestedFormHeader from "./NestedFormHeader";
+import NestedFormAdd from "./NestedFormAdd.vue";
+import NestedFormHeader from "./NestedFormHeader.vue";
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
@@ -240,18 +240,21 @@ export default {
                             ? "selectedResourceId"
                             : "value";
 
-                        this.$set(
-                            this.conditions,
-                            instance.fieldAttribute,
-                            instance[keyToWatch]
-                        );
+                        // Vue 3: reactive objects can be mutated directly.
+                        // `this.$set` no longer exists (removed with Vue 2).
+                        this.conditions[instance.fieldAttribute] = instance[keyToWatch];
 
                         instance.$watch(keyToWatch, (keyToWatch) => {
-                            this.$set(this.conditions, instance.fieldAttribute, keyToWatch);
+                            this.conditions[instance.fieldAttribute] = keyToWatch;
                         });
                     });
             }
 
+            // NOTE: `instance.$children` was removed in Vue 3, so this recursive
+            // traversal is a no-op on both Nova 4 and Nova 5 (both run Vue 3).
+            // The `displayIf` feature that depends on watching sibling fields
+            // therefore needs a Vue 3-native rewrite (e.g. Nova's dependent-field
+            // events) to become fully functional again. Guarded to avoid crashes.
             if (instance.$children) {
                 instance.$children.map((child) => this.setAllAttributeWatchers(child));
             }

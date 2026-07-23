@@ -1,7 +1,7 @@
-import NestedFormField from './components/NestedFormField'
-import NestedFormBelongsToField from './components/CustomFields/BelongsToField'
-import NestedFormFileField from './components/CustomFields/FileField'
-import NestedFormMorphToField from './components/CustomFields/MorphToField'
+import NestedFormField from './components/NestedFormField.vue'
+import NestedFormBelongsToField from './components/CustomFields/BelongsToField.vue'
+import NestedFormFileField from './components/CustomFields/FileField.vue'
+import NestedFormMorphToField from './components/CustomFields/MorphToField.vue'
 
 Nova.booting(Vue => {
     Vue.component('form-nested-form', NestedFormField)
