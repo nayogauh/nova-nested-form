@@ -1,20 +1,29 @@
 <template>
-  <div class="cursor-pointer"
-       @click="addChild">
-  <Icon
-    type="plus-circle"
+  <div
     v-if="field.max === 0 || field.children.length < field.max"
-    hover-color="success"
-  />  {{__('Add')}}
+    class="cursor-pointer inline-flex items-center gap-1 text-primary-500 hover:text-primary-400"
+    @click="addChild"
+  >
+    <!-- Inline SVG (Heroicons "plus-circle") for Nova 4 & 5 compatibility. -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      class="h-5 w-5"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
+        clip-rule="evenodd"
+      />
+    </svg>
+    {{ __('Add') }}
   </div>
 </template>
 
 <script>
-import NestedFormIcon from "./NestedFormIcon.vue";
-
 export default {
-  components: { NestedFormIcon },
-
   props: {
     field: {
       type: Object,
