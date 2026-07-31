@@ -16,12 +16,16 @@
         "@vue/babel-plugin-jsx": "^1.1.1",
         "axios": "^1.6.0",
         "cross-env": "^7.0.3",
+        "inflector-js": "^1.0.1",
         "laravel-mix": "^6.0.49",
+        "laravel-nova-ui": "^0.4.0",
+        "laravel-vapor": "^0.7.1",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.58.1",
         "sass-loader": "^13.0.2",
         "vue-loader": "^17.0.0",
-        "vue-template-compiler": "^2.7.14"
+        "vue-template-compiler": "^2.7.14",
+        "vuex": "^4.1.0"
     },
     "optionalDependencies": {
         "laravel-nova-devtool": "file:vendor/laravel/nova-devtool"
@@ -31,5 +35,8 @@
         "postcss-import": "^14.1.0",
         "terser-webpack-plugin": "^5.3.1",
         "vue": "^3.5.0"
+    },
+    "overrides": {
+        "webpack": "~5.74.0"
     }
 }
